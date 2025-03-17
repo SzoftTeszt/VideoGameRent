@@ -28,7 +28,7 @@ namespace VideoGame
         public override string? ToString()
         
         {
-            return base.ToString();
+            return $"{GameID} ID, {Title} cím, {IsAvailable} elérhatő";
         }
     }
 
