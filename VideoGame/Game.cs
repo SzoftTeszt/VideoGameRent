@@ -12,7 +12,7 @@ namespace VideoGame
         public string Title { get; set; }
         public string Genre { get; set; }
         public int RelaseYear { get; set; }
-        public bool IsAvailable { get; set;
+        public bool IsAvailable { get; set; }
         public decimal PricePerDay { get; set; }
 
         public Game(string gameID, string title, string genre, int relaseYear, bool isAvailable, decimal pricePerDay)
