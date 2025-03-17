@@ -25,13 +25,26 @@ namespace VideoGame
             customers.Add(customer);
         }
 
-        public List<Game> ListGames() {
-            return games;
+        public IEnumerable<Game> ListGames() {
+            return games.Where(x=>x.IsAvailable);
         }        
         
         public List<Customer> ListCustomer() {
             return customers;
         }
 
+
+        public Boolean RentGame(string customerName, string gameId) {
+
+            Customer customer = customers.FirstOrDefault(x => x.Name == customerName);
+            Game game = games.FirstOrDefault(g => g.GameID == gameId);
+
+            if (customer != null && game != null)
+            {
+                customer.RentGame(game); 
+            }
+            else return false;
+            return true;
+        }
     }
 }

@@ -18,13 +18,18 @@ namespace VideoGame
             Name = name;
         }
 
-        public void RentGame(Game game) { 
-            RentedGames.Add(game);
-            Console.WriteLine($"{game.Title} kikölcsönözve!");
+        public void RentGame(Game game) {
+            if (game.IsAvailable)
+            {
+                RentedGames.Add(game);
+                game.IsAvailable = false;
+                Console.WriteLine($"{game.Title} kikölcsönözve!");
+            }
         }        
         
         public void ReturnGame(Game game) { 
             RentedGames.Remove(game);
+            game.IsAvailable = true;
             Console.WriteLine($"{game.Title} visszahozva!");
         }
 

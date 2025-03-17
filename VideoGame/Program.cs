@@ -28,7 +28,17 @@ class Program
 
     static void RentGame()
     {
-
+        Console.Write("Add meg a  ügyfél nevét: ");
+        string user = Console.ReadLine();
+        Console.WriteLine();
+        Console.Write("Add meg a játék azonosítóját: ");
+        string gameId = Console.ReadLine();
+        if (rentalService.RentGame(user, gameId))
+            Console.WriteLine("Sikeres kölcsönzés!");
+        else
+        {
+            Console.WriteLine("Sikertelen kölcsönzés!");
+        }
     }
 
     static void ReturnGame()
@@ -60,88 +70,89 @@ class Program
         //Game jatek = new Game("0001","Call of duty","Háborús",2020,1000);
         //Console.WriteLine(jatek);
 
-        SeedGames();
-        DisplayInfo(rentalService.ListGames());
-        Console.WriteLine();
+        //SeedGames();
+        //DisplayInfo(rentalService.ListGames());
+        //Console.WriteLine();
 
 
-        SeedCustomers();
-        DisplayInfo(rentalService.ListCustomer());
-        Console.WriteLine();
+        //SeedCustomers();
+        //DisplayInfo(rentalService.ListCustomer());
+        //Console.WriteLine();
 
 
         //Customer felhasznalo = new Customer(101, "Katika");
         //Console.WriteLine(felhasznalo);
-        //felhasznalo.RentGame(jatek);        
+        //felhasznalo.RentGame(jatek);
+        //
         //Console.WriteLine(felhasznalo);
 
-        //// Betöltés fájlból
-        //if (File.Exists("games.csv")) LoadGames();
-        //else SeedGames();
+        // Betöltés fájlból
+        if (File.Exists("games.csv")) LoadGames();
+        else SeedGames();
 
-        //if (File.Exists("customers.csv")) LoadCustomers();
-        //else SeedCustomers();
+        if (File.Exists("customers.csv")) LoadCustomers();
+        else SeedCustomers();
 
-        //string choice = "\n";
+        string choice = "\n";
 
-        //while (true)
-        //{
+        while (true)
+        {
 
-        //    Console.WriteLine("\nVideójátékkölcsönző rendszer\n");
-        //    Console.WriteLine("1. Játékok listázása");
-        //    Console.WriteLine("2. Új játék felvétele");
-        //    Console.WriteLine("3. Elérhető játékok listázása");
-        //    Console.WriteLine("4. Felhasználók listázása");
-        //    Console.WriteLine("5. Új felhasználó felvétele");
-        //    Console.WriteLine("6. Játék kölcsönzése");
-        //    Console.WriteLine("7. Játék visszavétele");
-        //    Console.WriteLine("8. Kölcsönzési díjak megtekintése");
-        //    Console.WriteLine("9. Kilépés és mentés");
-        //    Console.WriteLine();
-        //    Console.WriteLine("Válassz egy opciót: ");
-        //    Console.WriteLine();
+            Console.WriteLine("\nVideójátékkölcsönző rendszer\n");
+            Console.WriteLine("1. Játékok listázása");
+            Console.WriteLine("2. Új játék felvétele");
+            Console.WriteLine("3. Elérhető játékok listázása");
+            Console.WriteLine("4. Felhasználók listázása");
+            Console.WriteLine("5. Új felhasználó felvétele");
+            Console.WriteLine("6. Játék kölcsönzése");
+            Console.WriteLine("7. Játék visszavétele");
+            Console.WriteLine("8. Kölcsönzési díjak megtekintése");
+            Console.WriteLine("9. Kilépés és mentés");
+            Console.WriteLine();
+            Console.WriteLine("Válassz egy opciót: ");
+            Console.WriteLine();
 
-        //    switch (choice)
-        //    {
-        //        case "1":
+            switch (choice)
+            {
+                case "1":
+                    DisplayInfo(rentalService.ListGames());
+                    break;
+                case "2":
 
-        //            break; 
-        //        case "2":
+                    break;
+                case "3":
 
-        //            break; 
-        //        case "3":
+                    break;
+                case "4":
+                    DisplayInfo(rentalService.ListCustomer());
+                    break;
+                case "5":
 
-        //            break;
-        //        case "4":
+                    break;
+                case "6":
+                    RentGame();
+                    break;
+                case "7":
 
-        //            break;
-        //        case "5":
+                    break;
+                case "8":
 
-        //            break;
-        //        case "6":
+                    break;
+                case "9":
 
-        //            break;
-        //        case "7":
+                    return;
 
-        //            break;
-        //        case "8":
+                case "\n":
+                    break;
+                default:
+                    Console.WriteLine("Érvénytelen választás. Próbáld újra!");
+                    break;
+            }
 
-        //            break;
-        //        case "9":
-
-        //            return;
-
-        //        case "\n":
-        //            break;
-        //        default:
-        //            Console.WriteLine("Érvénytelen választás. Próbáld újra!");
-        //            break;
-        //    }
-
-        //    Console.SetCursorPosition(20, 13);
-        //    choice = Console.ReadLine();
-        //    Console.Clear();
-        //}
+            Console.SetCursorPosition(20, 13);
+            choice = Console.ReadLine();
+            Console.Clear();
+        }
     }
 }
 
