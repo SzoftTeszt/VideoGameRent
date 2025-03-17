@@ -28,7 +28,7 @@ namespace VideoGame
         public override string? ToString()
         
         {
-            return $"{GameID} ID, {Title} cím, {IsAvailable} elérhatő";
+            return $"[{GameID}] - {Title}, {(IsAvailable?"elérhető":"Kikölcsönözve")}";
         }
     }
 
