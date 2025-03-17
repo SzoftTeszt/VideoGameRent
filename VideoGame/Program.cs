@@ -112,6 +112,7 @@ class Program
                 case "9":
                    
                     return;
+
                 case "\n":
                     break;
                 default:
