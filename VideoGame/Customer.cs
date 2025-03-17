@@ -30,7 +30,7 @@ namespace VideoGame
 
         public override string? ToString()
         {
-            return $"[{CustomerID}] - {Name}";
+            return $"[{CustomerID}] - {Name} Kölcsönött játékok: {String.Join(", ",RentedGames)}";
         }
     }
 }

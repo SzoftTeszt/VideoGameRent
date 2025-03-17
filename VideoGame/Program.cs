@@ -7,16 +7,16 @@ class Program
     static RentalService rentalService = new RentalService();
 
     static void SeedGames() {
-        //rentalService.AddGame(new Game("G001", "The Witcher 3", "RPG", 2015, 5.99m));
-        //rentalService.AddGame(new Game("G002", "Cyberpunk 2077", "Action RPG", 2020, 7.99m));
-        //rentalService.AddGame(new Game("G003", "Minecraft", "Sandbox", 2011, 3.99M));
+        rentalService.AddGame(new Game("G001", "The Witcher 3", "RPG", 2015, 5.99m));
+        rentalService.AddGame(new Game("G002", "Cyberpunk 2077", "Action RPG", 2020, 7.99m));
+        rentalService.AddGame(new Game("G003", "Minecraft", "Sandbox", 2011, 3.99M));
     }
     static void SeedCustomers() {
-        //rentalService.AddCustomer(new Customer(1, "Cset Elek"));
-        //rentalService.AddCustomer(new Customer(2, "Hiszt Erika"));
-        //rentalService.AddCustomer(new Customer(3, "Cicam Ica"));
-        //rentalService.AddCustomer(new Customer(4, "Idét Lenke"));
-        //rentalService.AddCustomer(new Customer(5, "Kispál Inka"));
+        rentalService.AddCustomer(new Customer(1, "Cset Elek"));
+        rentalService.AddCustomer(new Customer(2, "Hiszt Erika"));
+        rentalService.AddCustomer(new Customer(3, "Cicam Ica"));
+        rentalService.AddCustomer(new Customer(4, "Idét Lenke"));
+        rentalService.AddCustomer(new Customer(5, "Kispál Inka"));
     }
 
     static void DisplayInfo(IEnumerable<object> lista) {
@@ -57,22 +57,33 @@ class Program
     static void Main()
     {
 
-        Game jatek = new Game("0001","Call of duty","Háborús",2020,true,1000);
-        Console.WriteLine(jatek);
+        //Game jatek = new Game("0001","Call of duty","Háborús",2020,1000);
+        //Console.WriteLine(jatek);
 
-        Customer felhasznalo = new Customer(101, "Katika");
-        Console.WriteLine(felhasznalo);
+        SeedGames();
+        DisplayInfo(rentalService.ListGames());
+        Console.WriteLine();
 
+
+        SeedCustomers();
+        DisplayInfo(rentalService.ListCustomer());
+        Console.WriteLine();
+
+
+        //Customer felhasznalo = new Customer(101, "Katika");
+        //Console.WriteLine(felhasznalo);
+        //felhasznalo.RentGame(jatek);        
+        //Console.WriteLine(felhasznalo);
 
         //// Betöltés fájlból
         //if (File.Exists("games.csv")) LoadGames();
         //else SeedGames();
-        
+
         //if (File.Exists("customers.csv")) LoadCustomers();
         //else SeedCustomers();
 
         //string choice = "\n";
-       
+
         //while (true)
         //{
 
@@ -93,31 +104,31 @@ class Program
         //    switch (choice)
         //    {
         //        case "1":
-                   
+
         //            break; 
         //        case "2":
-                    
+
         //            break; 
         //        case "3":
-                    
+
         //            break;
         //        case "4":
-               
+
         //            break;
         //        case "5":
-                  
+
         //            break;
         //        case "6":
-                   
+
         //            break;
         //        case "7":
-                   
+
         //            break;
         //        case "8":
-                    
+
         //            break;
         //        case "9":
-                   
+
         //            return;
 
         //        case "\n":

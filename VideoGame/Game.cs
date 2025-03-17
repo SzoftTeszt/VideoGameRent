@@ -15,13 +15,13 @@ namespace VideoGame
         public bool IsAvailable { get; set; }
         public decimal PricePerDay { get; set; }
 
-        public Game(string gameID, string title, string genre, int relaseYear, bool isAvailable, decimal pricePerDay)
+        public Game(string gameID, string title, string genre, int relaseYear, decimal pricePerDay)
         {
             GameID = gameID;
             Title = title;
             Genre = genre;
             RelaseYear = relaseYear;
-            IsAvailable = isAvailable;
+            IsAvailable = true;
             PricePerDay = pricePerDay;
         }
 
