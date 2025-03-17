@@ -10,8 +10,14 @@ namespace VideoGame
     {
         public int CustomerID { get; set; }
         public string Name { get; set; }
-        public List<Game> RentedGames { get; set; }
+        public List<Game> RentedGames { get; set; } = new List<Game>();
 
+        public Customer(int customerID, string name)
+        {
+            CustomerID = customerID;
+            Name = name;
+        }
 
+        
     }
 }
